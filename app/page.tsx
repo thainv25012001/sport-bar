@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav';
 import FeatureImage from '@/components/FeatureImage';
+import GameFeed from '@/components/GameFeed';
 
 const tickerText =
     'LAKERS VS CELTICS • 8:00PM EST • LIVE ON SCREEN 01 // MAN CITY VS REAL MADRID • 21:00 GMT • LIVE ON SCREEN 02 // HAPPY HOUR UNTIL 10PM // BOTTLE SERVICE STARTING AT 150K // ';
@@ -9,12 +10,6 @@ const cocktails = [
     { name: 'LONG ISLAND ICED TEA', price: '₦12,000' },
     { name: 'SMOKE & MIRRORS SIGNATURE', price: '₦15,000', signature: true },
     { name: 'HENNESSY MARGARITA', price: '₦18,000' },
-];
-
-const games = [
-    { home: 'LAKERS 112', away: 'CELTICS 109', time: 'Q4 02:45', live: true },
-    { home: 'ARSENAL', away: 'LIVERPOOL', time: 'SUN 16:30' },
-    { home: 'KNICKS', away: 'HEAT', time: 'MON 19:00' },
 ];
 
 const gallery = [
@@ -77,25 +72,7 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <div className="game-feed">
-                        <div className="feed-header">
-                            <span className="time-tag">IN PLAY NOW</span>
-                            <h4 className="feed-title">CURRENT ACTION</h4>
-                        </div>
-
-                        {games.map(({ home, away, time, live }, i) => (
-                            <div key={home} className={i === games.length - 1 ? 'game-row game-row--last' : 'game-row'}>
-                                <div className="team-meta">
-                                    {live && <span className="live-dot"></span>}
-                                    {home}
-                                </div>
-                                <div className="team-meta">{away}</div>
-                                <div className="time-tag">{time}</div>
-                            </div>
-                        ))}
-
-                        <div className="nav-pill nav-pill--block">VIEW FULL GAME SCHEDULE</div>
-                    </div>
+                    <GameFeed />
                 </div>
             </div>
 
